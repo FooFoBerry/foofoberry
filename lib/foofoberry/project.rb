@@ -3,7 +3,7 @@ require 'faraday'
 
 module FooFoBerry
   class Project
-    def self.create_with(params)
+    def create_with(params)
       url = "http://localhost:3001"
 
       ### ASK SOMEONE: HOW WE MAKE THIS WORK BETTER
@@ -18,7 +18,7 @@ module FooFoBerry
         req.body = params.to_json
       end
 
-      [response.status, response.body]
+      [response.status, JSON.parse(response.body)]
     end
   end
 end
