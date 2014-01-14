@@ -1,6 +1,5 @@
 require 'json'
-require 'faraday'
-require './lib/foofoberry/client'
+require_relative 'client'
 
 module FooFoBerry
   class Project

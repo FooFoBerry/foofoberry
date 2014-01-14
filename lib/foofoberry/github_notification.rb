@@ -1,5 +1,5 @@
 require 'json'
-require './lib/foofoberry/client'
+require_relative 'client'
 
 module FooFoBerry
   class GitHubNotification
