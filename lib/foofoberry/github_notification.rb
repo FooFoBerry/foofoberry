@@ -19,7 +19,7 @@ module FooFoBerry
     end
 
     def save!
-      response = client.post("commits", data)
+      response = client.post("commits", data.to_json)
       [response.status, JSON.parse(response.body)]
     end
 
