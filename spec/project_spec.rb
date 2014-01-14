@@ -14,7 +14,8 @@ describe FooFoBerry::Project do
         :name => "KC"
       }
     }
-    expected_result = [201, {"id" => 1, "name" => "KC", "user_id" => 1}]
+    expected_json = File.read("./spec/fixtures/project.json")
+    expected_result = [201, JSON.parse(expected_json)] 
     expect( p.create_with(params) ).to eq expected_result
   end
 
@@ -26,6 +27,6 @@ describe FooFoBerry::Project do
     end
   end
 
-  class MockResponse < Struct.new(:status, :body); end
+  MockResponse = Struct.new(:status, :body)
 end
 
