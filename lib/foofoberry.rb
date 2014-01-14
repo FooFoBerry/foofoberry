@@ -1,6 +1,6 @@
 require "foofoberry/version"
 require "foofoberry/project"
-require "foofoberr/client"
+require "foofoberry/client"
 module Foofoberry
   # Your code goes here...
 end
