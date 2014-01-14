@@ -1,3 +1,4 @@
+require 'json'
 require './lib/foofoberry/client'
 
 module FooFoBerry
@@ -8,21 +9,18 @@ module FooFoBerry
     def initialize(json_payload, input_client = FooFoBerry::Client.new)
       @client          = input_client
       @payload         = JSON.parse(json_payload)
-      @commit_id       = @payload["head_commit"]["id"]
+      @commit_id       = @payload["head_commit"]["id"].to_s
       @timestamp       = @payload["head_commit"]["timestamp"]
       @author_name     = @payload["head_commit"]["author"]["name"]
       @author_email    = @payload["head_commit"]["author"]["email"]
       @author_username = @payload["head_commit"]["author"]["username"]
-      @repository_id   = @payload["repository"]["id"]
+      @repository_id   = @payload["repository"]["id"].to_s
       @repository_url  = @payload["repository"]["url"]
     end
 
     def save!
-      client.post do |req|
-        req.url "/commits"
-        req.headers['Content-Type'] = 'application/json'
-        req.body = data.to_json
-      end
+      response = client.post("commits", data)
+      [response.status, JSON.parse(response.body)]
     end
 
     def data
@@ -38,7 +36,7 @@ module FooFoBerry
           :email    => author_email,
           :username => author_username
         }
-      }.to_json
+      }
     end
   end
 end

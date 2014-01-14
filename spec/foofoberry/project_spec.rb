@@ -23,10 +23,8 @@ describe FooFoBerry::Project do
     def post(path, body)
      body = File.read("./spec/fixtures/project.json")
      status = 201
-     MockResponse.new(status, body)
+     MockResponse.new(status, body) # support.rb
     end
   end
-
-  MockResponse = Struct.new(:status, :body)
 end
 
