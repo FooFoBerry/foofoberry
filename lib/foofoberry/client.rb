@@ -22,7 +22,7 @@ module FooFoBerry
     private
 
     def new_connection
-      Faraday.new(:url => 'http://localhost:3001/')
+      Faraday.new(:url => 'http://localhost:9292/api/v1/')
     end
 
     def extension
