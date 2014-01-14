@@ -1,23 +1,17 @@
 require 'json'
 require 'faraday'
+require './lib/foofoberry/client'
 
 module FooFoBerry
   class Project
+    attr_reader :client
+
+    def initialize(input_client = FooFoBerry::Client.new)
+      @client = input_client
+    end
+
     def create_with(params)
-      url = "http://localhost:3001"
-
-      ### ASK SOMEONE: HOW WE MAKE THIS WORK BETTER
-      conn = Faraday.new(:url => url) do |faraday|
-        faraday.request  :url_encoded
-        faraday.adapter  Faraday.default_adapter
-      end
-
-      response = conn.post do |req|
-        req.url '/projects'
-        req.headers['Content-Type'] = 'application/json'
-        req.body = params.to_json
-      end
-
+      response = client.post("projects", params.to_json)
       [response.status, JSON.parse(response.body)]
     end
   end
