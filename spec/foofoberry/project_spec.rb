@@ -19,11 +19,6 @@ describe FooFoBerry::Project do
     expect( p.create_with(params) ).to eq expected_result
   end
 
-  it "can retrieve projects by user" do
-    p = FooFoBerry::Project.new(MockClient.new)
-    expect( p.projects_for(1)[1].map { |p| p["name"] }).to eq (["FooFoBerry Project"])
-  end
-
   class MockClient
     def post(path, body)
      body = File.read("./spec/fixtures/project.json")
