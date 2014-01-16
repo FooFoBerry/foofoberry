@@ -13,5 +13,10 @@ module FooFoBerry
       response = client.post("projects", params.to_json)
       [response.status, JSON.parse(response.body)]
     end
+
+    def projects_for(user_id)
+      response = client.get("projects?user_id=#{user_id}")
+      [response.status, JSON.parse(response.body)]
+    end
   end
 end

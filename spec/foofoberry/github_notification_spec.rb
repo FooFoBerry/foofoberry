@@ -34,5 +34,11 @@ describe FooFoBerry::GitHubNotification do
      status = 201
      MockResponse.new(status, body) # support.rb
     end
+
+    def get(path)
+      body = File.read("./spec/fixtures/get_projects.json")
+      status = 200
+      MockResponse.new(status, body)
+    end
   end
 end
