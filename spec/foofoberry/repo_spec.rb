@@ -7,7 +7,7 @@ describe FooFoBerry::Repo do
   end
 
   it "can create a new Project" do
-    r = FooFoBerry::Repo.new(MockClient.new)
+    r = FooFoBerry::Repo.new(RepoMockClient.new)
     params = {
       :repo => {
         :github_url => "foofoberry/costner_goes_postal",
@@ -19,7 +19,7 @@ describe FooFoBerry::Repo do
     expect( r.create_with(params) ).to eq expected_result
   end
 
-  class MockClient
+  class RepoMockClient
     def post(path, body)
      body = File.read("./spec/fixtures/repo.json")
      status = 201

@@ -7,7 +7,7 @@ describe FooFoBerry::Project do
   end
 
   it "can create a new Project" do
-    p = FooFoBerry::Project.new(MockClient.new)
+    p = FooFoBerry::Project.new(ProjectMockClient.new)
     params = {
       :project => {
         :user_id => 1,
@@ -15,11 +15,11 @@ describe FooFoBerry::Project do
       }
     }
     expected_json = File.read("./spec/fixtures/project.json")
-    expected_result = [201, JSON.parse(expected_json)] 
+    expected_result = [201, JSON.parse(expected_json)]
     expect( p.create_with(params) ).to eq expected_result
   end
 
-  class MockClient
+  class ProjectMockClient
     def post(path, body)
      body = File.read("./spec/fixtures/project.json")
      status = 201
