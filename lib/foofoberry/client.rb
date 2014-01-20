@@ -26,7 +26,7 @@ module FooFoBerry
     end
 
     def connection_url
-      if Rails.env.production?
+      if production_env?
         'http://162.243.206.48/api/v1/'
       else
         'http://localhost:8080/api/v1/'
@@ -36,5 +36,18 @@ module FooFoBerry
     def extension
       ".json"
     end
+
+    def production_env?
+      production_rails? || production_sinatra?
+    end
+
+    def production_rails?
+      defined?(Rails) && Rails.env.production?
+    end
+
+    def production_sinatra?
+      defined?(Sinatra) && Sinata::Base.production?
+    end
+
   end
 end
