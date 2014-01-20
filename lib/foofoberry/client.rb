@@ -22,7 +22,15 @@ module FooFoBerry
     private
 
     def new_connection
-      Faraday.new(:url => 'http://localhost:8080/api/v1/')
+      Faraday.new(:url => connection_url)
+    end
+
+    def connection_url
+      if Rails.env.production?
+        'http://162.243.206.48/api/v1/'
+      else
+        'http://localhost:8080/api/v1/'
+      end
     end
 
     def extension
