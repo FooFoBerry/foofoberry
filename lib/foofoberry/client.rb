@@ -46,7 +46,7 @@ module FooFoBerry
     end
 
     def production_sinatra?
-      defined?(Sinatra) && Sinata::Base.production?
+      defined?(Sinatra) && Sinatra::Base.production?
     end
 
   end
