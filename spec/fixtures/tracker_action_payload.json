@@ -1,0 +1,62 @@
+{
+  "primary_resources": [
+    {
+      "url": "http://www.pivotaltracker.com/story/show/64265964",
+      "kind": "story",
+      "story_type": "feature",
+      "name": "This is a test story",
+      "id": 64265964
+    }
+  ],
+  "message": "Tyler Long added this feature",
+  "guid": "984284_254",
+  "kind": "story_create_activity",
+  "performed_by": {
+    "kind": "person",
+    "initials": "TL",
+    "name": "Tyler Long",
+    "id": 1165564
+  },
+  "highlight": "added",
+  "project": {
+    "kind": "project",
+    "name": "The Board of Agility ",
+    "id": 984284
+  },
+  "project_version": 254,
+  "occurred_at": 1390338528000,
+  "changes": [
+    {
+      "change_type": "create",
+      "kind": "story",
+      "story_type": "feature",
+      "name": "This is a test story",
+      "new_values": {
+        "project_id": 984284,
+        "after_id": 64127070,
+        "story_type": "feature",
+        "description": "To use the API",
+        "current_state": "unscheduled",
+        "owner_ids": [
+
+        ],
+        "requested_by_id": 1165564,
+        "name": "This is a test story",
+        "created_at": 1390338527000,
+        "id": 64265964,
+        "follower_ids": [
+
+        ],
+        "before_id": 63310920,
+        "label_ids": [
+
+        ],
+        "updated_at": 1390338528000,
+        "labels": [
+
+        ]
+      },
+      "id": 64265964
+    }
+  ]
+}
