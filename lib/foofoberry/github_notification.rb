@@ -4,7 +4,8 @@ require_relative 'client'
 module FooFoBerry
   class GitHubNotification
     attr_reader :payload, :commit_id, :timestamp, :author_name, :author_email,
-                :author_username, :repository_id, :repository_url, :client
+                :author_username, :repository_id, :repository_url, :client,
+                :message
 
     def initialize(json_payload, input_client = FooFoBerry::Client.new)
       @client          = input_client
@@ -13,9 +14,10 @@ module FooFoBerry
       @timestamp       = @payload["head_commit"]["timestamp"]
       @author_name     = @payload["head_commit"]["author"]["name"]
       @author_email    = @payload["head_commit"]["author"]["email"]
+      @message         = @payload["head_commit"]["message"]
       @author_username = @payload["head_commit"]["author"]["username"]
       @repository_id   = @payload["repository"]["id"].to_s
-      @repository_url  = @payload["repository"]["url"]
+      @repository_url  = @payload["repository"]["url"].to_s.downcase
     end
 
     def save!
@@ -27,6 +29,7 @@ module FooFoBerry
       {
         :commit_id => commit_id,
         :timestamp => timestamp,
+        :message   => message,
         :repository => {
           :id  => repository_id,
           :url => repository_url

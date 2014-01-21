@@ -9,6 +9,7 @@ describe FooFoBerry::GitHubNotification do
     desired_data = {
       :commit_id => "96dd704dc8770624e5da9082498c531edf0aef4a",
       :timestamp => "2014-01-13T18:45:47-08:00",
+      :message => "add readme",
       :repository => {
         :id  => "15889813",
         :url => "https://github.com/thewatts/testing-callbacks"
