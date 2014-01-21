@@ -37,12 +37,10 @@ describe FooFoBerry::TrackerNotification do
     it "post to the api with the correct attributes" do
       payload = File.read('./spec/fixtures/tracker_action_payload.json')
 
-      client = double
-      FooFoBerry::TrackerNotification.any_instance.stub(:client).and_return(client)
       FooFoBerry::TrackerNotification.any_instance.stub(:save!).and_return [200, "foo"]   
 
       status, response = FooFoBerry::TrackerNotification.new(payload).save!
       expect(status).to eq 200
     end 
-   end
+  end
 end
