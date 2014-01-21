@@ -43,5 +43,6 @@ describe FooFoBerry::TrackerNotification do
 
       status, response = FooFoBerry::TrackerNotification.new(payload).save!
       expect(status).to eq 200
-    end   end
+    end 
+   end
 end
