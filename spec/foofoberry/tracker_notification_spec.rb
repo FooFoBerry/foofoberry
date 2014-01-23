@@ -21,16 +21,18 @@ describe FooFoBerry::TrackerNotification do
     end
 
     it "has the correct data attribute" do
-      expected_data = {
-                       :story_url => "http://www.pivotaltracker.com/story/show/64265964",
-                       :message   => "Tyler Long added this feature",
-                       :kind      => "story_create_activity",
-                       :user_name => "Tyler Long",
-                       :story_id  => 64265964,
-                       :change_type => "create",
-                       :story_title => "This is a test story",
-                       :user_initials => "TL",
-                       :pt_project_id => 984284
+      expected_data = { :tracker_event =>
+                        {
+                         :story_url => "http://www.pivotaltracker.com/story/show/64265964",
+                         :message   => "Tyler Long added this feature",
+                         :kind      => "story_create_activity",
+                         :user_name => "Tyler Long",
+                         :story_id  => 64265964,
+                         :change_type => "create",
+                         :story_title => "This is a test story",
+                         :user_initials => "TL",
+                         :pt_project_id => 984284
+                        }
                       }
       expect(@notification.data).to eq(expected_data)
     end
