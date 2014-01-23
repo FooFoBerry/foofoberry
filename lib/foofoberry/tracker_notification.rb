@@ -28,21 +28,23 @@ module FooFoBerry
     end
 
     def data
-      {
-        :story_url     => story_url,
-        :message       => message,
-        :kind          => kind,
-        :user_name     => user_name,
-        :story_id      => story_id,
-        :change_type   => change_type,
-        :story_title   => story_title,
-        :user_initials => user_initials,
-        :pt_project_id => pt_project_id
+      { :tracker_event =>
+        {
+          :story_url     => story_url,
+          :message       => message,
+          :kind          => kind,
+          :user_name     => user_name,
+          :story_id      => story_id,
+          :change_type   => change_type,
+          :story_title   => story_title,
+          :user_initials => user_initials,
+          :pt_project_id => pt_project_id
+        }
       }
     end
 
     def save!
-      response = client.post("story_events", data)
+      response = client.post("tracker_events", data.to_json)
       [response.status, JSON.parse(response.body)]
     end
   end
