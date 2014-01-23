@@ -14,6 +14,7 @@ describe FooFoBerry::TrackerProject do
 
     tracker_project_client = FooFoBerry::TrackerProject.new
     params = {
+      project_id: 1,
       tracker_project: {
          pt_tracker_id: 1
       }
