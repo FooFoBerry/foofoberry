@@ -9,7 +9,7 @@ describe FooFoBerry::CommitStore do
   it "can retrieve commits by project_id" do
     c = FooFoBerry::CommitStore.new(MockCommitClient.new)
     _, response = c.recent_from(1)
-    expect(response.map {|c| c["commit_hash"]}).to eq (["a3039", "ca26a"])
+    expect(response.map {|c| c["commit_hash"]}).to eq(["a3039", "ca26a"])
   end
 
   class MockCommitClient
