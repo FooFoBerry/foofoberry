@@ -1,3 +1,6 @@
+require 'json'
+require_relative 'client'
+
 module FooFoBerry
   class CommitStore
     attr_reader :client
