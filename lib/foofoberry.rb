@@ -7,6 +7,7 @@ require "foofoberry/repo"
 require "foofoberry/tracker_notification"
 require "foofoberry/commit_store"
 require "foofoberry/tracker_store"
+require "foofoberry/tracker_project"
 
 module Foofoberry
   # Your code goes here...
