@@ -10,7 +10,10 @@ module FooFoBerry
     end
 
     def create_with(params)
-      response = client.post("tracker_projects", params.to_json)
+      project_id = params["project_id"]
+      tracker_project_params = params["tracker_project"]
+      url = "projects/#{project_id}/tracker_projects"
+      response = client.post(url, tracker_project_params.to_json)
       [response.status, JSON.parse(response.body)]
     end
   end
