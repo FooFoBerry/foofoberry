@@ -2,7 +2,7 @@ require './spec/spec_helper'
 require './lib/foofoberry/project'
 
 describe FooFoBerry::Project do
-  it "exists" do
+  it "exists"do
     expect(FooFoBerry::Project).not_to be_nil
   end
 

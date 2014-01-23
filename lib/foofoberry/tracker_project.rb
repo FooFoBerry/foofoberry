@@ -1,5 +1,5 @@
 require 'json'
-require 'client'
+require_relative 'client'
 
 module FooFoBerry
   class TrackerProject
@@ -14,7 +14,6 @@ module FooFoBerry
       tracker_project_params = { :tracker_project =>
                                  params[:tracker_project] }
       url = "projects/#{project_id}/tracker_projects"
-      binding.pry
       response = client.post(url, tracker_project_params.to_json)
       [response.status, JSON.parse(response.body)]
     end
